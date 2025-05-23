@@ -5,6 +5,7 @@
 }
 
 .mecab-token {
+  -webkit-tap-highlight-color: transparent;
   font-family: 'Shippori Mincho';
   margin-right: 0.1em;
   line-height: 1.8;

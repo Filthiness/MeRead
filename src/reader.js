@@ -216,6 +216,44 @@ document.getElementById('settings-btn').addEventListener('click', () => {
   }).open();
 });
 
+function initTopBar(){
+    const topBar = document.getElementById('top-bar');
+    let lastScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    
+    window.addEventListener('scroll', () => {
+        const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (currentScrollPosition > lastScrollPosition) {
+            // Scrolling down
+            topBar.classList.add('contracted');
+        } else {
+            // Scrolling up
+            topBar.classList.remove('contracted');
+        }
+        
+        lastScrollPosition = currentScrollPosition;
+    });
+}
+
+
+function initBotBar(){
+    const barElement = document.querySelector('floating-bottom-bar');
+
+    // no-ops should toggle the bar(s)
+    document.addEventListener('click', (e) => {
+        const cl = e.target.classList;
+        const noop = cl.contains('mecab-analysis')
+            || cl.contains('reader-content')
+            || e.target.id === "container"
+            || e.target.id === "outarea"
+            || e.target === document.body
+            || e.target === document.documentElement
+
+        if (noop) {
+            barElement.toggle();
+        }
+    });
+}
 
 function initBookmarkBtn(bookmarkButton, reader){
     if (bookmarkButton === undefined) return;
@@ -253,6 +291,9 @@ function initBookmarkBtn(bookmarkButton, reader){
 // --------------------------------------------------
 
 async function init(){
+    initBotBar();
+    initTopBar();
+
     let outarea = document.getElementById('outarea');
     const bookmarkButton = document.getElementById('bookmark-btn');
     let params = new URLSearchParams(document.location.search);

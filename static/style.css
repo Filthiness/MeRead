@@ -1,3 +1,5 @@
+/* COMMON */
+
 /* hide page scrollbar */
 html { scrollbar-width: none; } /* Firefox */
 body { -ms-overflow-style: none; } /* IE and Edge */
@@ -40,82 +42,3 @@ body::-webkit-scrollbar, body::-webkit-scrollbar-button { display: none; } /* Ch
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
 }
-
-
-#container {
-    width: clamp(300px, 90%, 600px);;
-    margin: 0 auto;
-}
-
-
-#botbar-container {
-    background-color: rgba(255, 255, 255, 0.90);
-    margin: 0 auto;
-    padding: 0.75em 1em;
-    border-radius: 1em 1em 0 0;
-    box-shadow: 0 -0.5em 3em rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: none;
-}
-
-#botbar-btns {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.75em;
-}
-
-.botbar-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5em 1em;
-    border-radius: 0.7em;
-    border: none;
-    background: transparent;
-    color: #555;
-    font-size: 0.85em;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    min-width: 4em;
-}
-
-.botbar-btn:hover {
-    background: rgba(0, 0, 0, 0.05);
-    color: #333;
-}
-
-.botbar-btn.primary {
-    background: #333;
-    color: white;
-    box-shadow: 0 2px 5px rgba(74, 108, 247, 0.3);
-}
-
-.botbar-btn.primary:hover {
-    filter: brightness(95%);
-}
-
-.btn-icon {
-    width: 20px;
-    height: 20px;
-    margin-bottom: 0.25em;
-    fill: currentColor;
-}
-
-/* Make the play button slightly larger */
-#play-btn {
-    padding: 0.6em 1.2em;
-    font-size: 0.9em;
-}
-
-
-/* temp artifacts for testing */
-textarea {
-    width: 100%;
-    display: block;
-    margin: 10px 0;
-}
-#in { height: 3em; }
-#out { height: 15em; }

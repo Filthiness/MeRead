@@ -87,3 +87,163 @@
     }
 }
 
+
+#botbar-container {
+    background-color: rgba(255, 255, 255, 0.90);
+    margin: 0 auto;
+    padding: 0.75em 1em;
+    border-radius: 1em 1em 0 0;
+    box-shadow: 0 -0.5em 3em rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: none;
+}
+
+#botbar-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75em;
+}
+
+.botbar-btn {
+    -webkit-tap-highlight-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em 1em;
+    border-radius: 0.7em;
+    border: none;
+    background: transparent;
+    color: #555;
+    font-size: 0.85em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 4em;
+}
+
+.botbar-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #333;
+}
+
+.botbar-btn.primary {
+    background: #333;
+    color: white;
+    box-shadow: 0 2px 5px rgba(74, 108, 247, 0.3);
+}
+
+.botbar-btn.primary:hover {
+    filter: brightness(95%);
+}
+
+.btn-icon {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 0.25em;
+    fill: currentColor;
+}
+
+/* Make the play button slightly larger */
+#play-btn {
+    padding: 0.6em 1.2em;
+    font-size: 0.9em;
+}
+
+/* top bar */
+
+#top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px; /* Increased height */
+    background-color: rgba(255, 255, 255, 0.95);
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: height 0.3s ease;
+    overflow: hidden;
+}
+
+#top-bar.contracted {
+    height: 1em;
+}
+
+.top-bar-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.top-bar-left, .top-bar-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+.top-bar-center {
+    flex: 3;
+    display: flex;
+    justify-content: center;
+}
+
+.top-bar-right {
+    justify-content: flex-end;
+}
+
+#top-bar.contracted .top-bar-left,
+#top-bar.contracted .top-bar-right
+{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.top-bar-title {
+    font-family: "Shippori Mincho";
+    font-size: 1.2em;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    text-align: center;
+    transition: font-size 0.3s ease;
+}
+
+
+#top-bar.contracted .top-bar-title{
+    font-size: 0.7em;
+}
+
+.top-bar-button {
+    -webkit-tap-highlight-color: transparent;
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    margin-left: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.top-bar-button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+
+/* /top bar */
+
+#back-button svg {
+    fill: #333;
+}
+
+/* Adjust container to account for top bar */
+#container {
+    width: clamp(300px, 90%, 600px);
+    margin: 70px auto 0; /* Added top margin to avoid overlap with top bar */
+}

@@ -1,12 +1,16 @@
-class FloatingBottomBar extends HTMLElement {
+class FloatingBar extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
+        
+        // Default to 'bottom' if no position attribute is set
+        this.position = this.getAttribute('position') || 'bottom';
+        
         this.shadowRoot.innerHTML = `
             <style>
             :host {
                 position: fixed;
-                bottom: 0;
+                ${this.position}: 0;
                 left: 0;
                 right: 0;
                 z-index: 1000;
@@ -23,7 +27,7 @@ class FloatingBottomBar extends HTMLElement {
                 width: 100%;
             }
             .hidden {
-                transform: translateY(100%);
+                transform: translateY(${this.position === 'bottom' ? '100%' : '-100%'});
             }
             ::slotted(*) {
                 width: 100%;
@@ -35,7 +39,29 @@ class FloatingBottomBar extends HTMLElement {
             </div>
         `;
         this.bar = this.shadowRoot.querySelector('.bar');
-        this.showing = true;
+    }
+
+    static get observedAttributes() {
+        return ['position'];
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        if (name === 'position' && oldValue !== newValue) {
+            this.position = newValue;
+            this.updatePosition();
+        }
+    }
+
+    updatePosition() {
+        const host = this.shadowRoot.host;
+        host.style.bottom = this.position === 'bottom' ? '0' : '';
+        host.style.top = this.position === 'top' ? '0' : '';
+        
+        // Update the transform direction for hiding
+        const hiddenClass = this.shadowRoot.querySelector('.hidden');
+        if (hiddenClass) {
+            hiddenClass.style.transform = `translateY(${this.position === 'bottom' ? '100%' : '-100%'})`;
+        }
     }
 
     hide() {
@@ -49,33 +75,29 @@ class FloatingBottomBar extends HTMLElement {
     }
 
     toggle() {
-        if (this.showing){
+        if (this.bar.classList.contains('hidden')) {
+            this.show();
+        } else {
             this.hide();
         }
-        else{
-            this.show();
-        }
-        this.showing = !this.showing;
     }
 }
 
-customElements.define('floating-bottom-bar', FloatingBottomBar);
-const barElement = document.querySelector('floating-bottom-bar');
-
-// no-ops should toggle the bar
-document.addEventListener('click', (e) => {
-    const cl = e.target.classList;
-    const noop = cl.contains('mecab-analysis')
-        || cl.contains('reader-content')
-        || e.target.id === "container"
-        || e.target.id === "outarea"
-        || e.target === document.body
-        || e.target === document.documentElement
-    
-    if (noop) {
-        barElement.toggle();
+// Define both variants for convenience
+customElements.define('floating-bar', FloatingBar);
+customElements.define('floating-bottom-bar', class extends FloatingBar {
+    constructor() {
+        super();
+        this.position = 'bottom';
+        this.updatePosition();
+    }
+});
+customElements.define('floating-top-bar', class extends FloatingBar {
+    constructor() {
+        super();
+        this.position = 'top';
+        this.updatePosition();
     }
 });
 
-export default FloatingBottomBar;
-
+export default FloatingBar;

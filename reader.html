@@ -17,6 +17,24 @@
         <script type="module" src="./src/ui/singleton/progress.js"></script>
     </head>
     <body>
+        <div id="top-bar">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <button id="back-button" class="top-bar-button" onclick="window.location.href='index.html'">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="top-bar-center">
+                    <div class="top-bar-title">Title Here</div>
+                </div>
+                <div class="top-bar-right">
+                    <button class="top-bar-button">Butt</button>
+                </div>
+            </div>
+        </div>
+
         <div id="container">
             <div id="outarea"></div>
         </div>
