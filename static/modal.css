@@ -1,0 +1,54 @@
+dialog {
+  transition: all 0.3s ease-in-out;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0; /* Remove padding from dialog - we'll handle padding in inner elements */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  max-height: 80vh;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+.modal-content {
+  flex: 1; /* Take up remaining space */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 0 20px; /* Add horizontal padding */
+  margin: 20px 0; /* Add vertical margin */
+}
+
+.modal-footer {
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid #eee;
+  flex-shrink: 0; /* Prevent footer from shrinking */
+}

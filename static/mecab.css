@@ -1,0 +1,113 @@
+/* CSS Variable to toggle token coloring */
+:root {
+  --mecab-token-coloring: 1; /* Set to 0 to disable coloring */
+  --reader-background: white;
+}
+
+.mecab-token {
+  font-family: 'Shippori Mincho';
+  margin-right: 0.1em;
+  line-height: 1.8;
+  padding: 0.1em 0.1em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  background-color: var(--reader-background); /* Default no background */
+}
+
+/* Token coloring based on POS - only when coloring is enabled */
+.mecab-token[data-pos="名詞"] {
+  background-color: color-mix(in srgb, #ffecec calc(var(--mecab-token-coloring) * 100%), var(--reader-background));
+}
+
+.mecab-token[data-pos="助詞"] {
+  background-color: color-mix(in srgb, #ecf7ec calc(var(--mecab-token-coloring) * 100%), var(--reader-background));
+}
+
+.mecab-token[data-pos="助動詞"] {
+  background-color: color-mix(in srgb, #ececf7 calc(var(--mecab-token-coloring) * 100%), var(--reader-background));
+}
+
+.mecab-token[data-pos="動詞"] {
+  background-color: color-mix(in srgb, #ffffd6 calc(var(--mecab-token-coloring) * 100%), var(--reader-background));
+}
+
+.mecab-token[data-pos="形容詞"] {
+  background-color: color-mix(in srgb, #f7ecf7 calc(var(--mecab-token-coloring) * 100%), var(--reader-background));
+}
+
+.mecab-token[data-pos="副詞"] {
+  background-color: color-mix(in srgb, #ecf7f7 calc(var(--mecab-token-coloring) * 100%), var(--reader-background));
+}
+
+.mecab-token[data-pos="連体詞"] {
+  background-color: color-mix(in srgb, #ffebd6 calc(var(--mecab-token-coloring) * 100%), var(--reader-background));
+}
+
+.mecab-token[data-pos="接続詞"] {
+  background-color: color-mix(in srgb, #d6ebf7 calc(var(--mecab-token-coloring) * 100%), var(--reader-background));
+}
+
+.mecab-token[data-pos="感動詞"] {
+  background-color: color-mix(in srgb, #ffd6eb calc(var(--mecab-token-coloring) * 100%), var(--reader-background));
+}
+
+.mecab-token[data-pos="記号"] {
+  background-color: color-mix(in srgb, #e6e6e6 calc(var(--mecab-token-coloring) * 100%), var(--reader-background));
+}
+
+.mecab-token:hover {
+  filter: brightness(95%);
+  transform: translateY(-1px);
+}
+
+.mecab-token.bookmarked {
+    outline: 2px solid #FF0000;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.mecab-word {
+  font-weight: 500;
+}
+
+.mecab-ruby {
+  ruby-position: above;
+  margin-right: 0.1em;
+}
+
+.mecab-ruby rt {
+  font-size: 0.6em;
+  user-select: none;
+  opacity: 0.8;
+}
+
+.mecab-pos-detail {
+  transition: translate 0.2s ease;
+  background-color: white;
+  padding: 0.3em 0.6em;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 0.8em;
+  white-space: normal;
+  margin-top: 2px;
+  border: 1px solid #eee;
+  max-width: 90vw;
+  overflow: auto;
+}
+
+.mecab-pronunciation {
+  font-size: 0.7em;
+  opacity: 0.7;
+  margin-left: 0.1em;
+}
+
+.mecab-analysis {
+  display: table;
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 2;
+}

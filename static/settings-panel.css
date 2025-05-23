@@ -1,0 +1,25 @@
+/* Settings panel styles */
+.settings-panel {
+  padding: 1em;
+}
+
+.settings-group {
+  margin-bottom: 1.5em;
+}
+
+.settings-group h3 {
+  margin: 0 0 0.75em 0;
+  font-size: 1em;
+  color: #555;
+}
+
+.settings-option {
+  display: flex;
+  align-items: center;
+  padding: 0.5em 0;
+  cursor: pointer;
+}
+
+.settings-option input {
+  margin-right: 0.75em;
+}

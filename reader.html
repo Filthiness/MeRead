@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preload" href="/static/fonts/shippori.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/static/fonts/shippori.css"></noscript>
+
+        <link rel="stylesheet" href="./static/style.css">
+        <link rel="stylesheet" href="./static/mecab.css">
+        <link rel="stylesheet" href="./static/modal.css">
+        <link rel="stylesheet" href="./static/jisho.css">
+        <link rel="stylesheet" href="./static/reader.css">
+        <link rel="stylesheet" href="./static/settings-panel.css">
+
+        <script type="module" src="./src/ui/singleton/floatbar.js"></script>
+        <script type="module" src="./src/ui/singleton/progress.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="outarea"></div>
+        </div>
+
+        <floating-bottom-bar>
+            <div id="botbar-container">
+                <div>
+                    <read-progress-bar></read-progress-bar>
+                </div>
+                <div id="botbar-btns">
+                    <button id="bookmark-btn" class="botbar-btn" draggable="true">
+                        <svg class="btn-icon" viewBox="0 0 24 24"><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
+                    </button>
+                    <button id="play-btn" class="botbar-btn primary">
+                        <svg class="btn-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </button>
+                    <button id="settings-btn" class="botbar-btn">
+                        <svg class="btn-icon" viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.64l-1.92-3.32c-.12-.22-.37-.3-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.42-.48-.42h-3.84c-.24 0-.43.18-.47.42l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.22-.08.49.12.64l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.64l1.92 3.32c.12.22.37.3.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.42.48.42h3.84c.24 0 .44-.18.47-.42l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.49-.12-.64l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+                    </button>
+                </div>
+            </div>
+        </floating-bottom-bar>
+
+        <script type="module" src="./src/bookmark.js"></script>
+        <script type="module" src="./src/reader.js"></script>
+    </body>
+</html>

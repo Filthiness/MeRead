@@ -1,0 +1,67 @@
+ /* abbr. jr */
+.jisho-renderer {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 15px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px #0000001a;
+}
+
+.jr-entry {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.jr-entry:last-child {
+    border-bottom: none;
+}
+
+.jr-word-header {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 8px;
+}
+
+.jr-word {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.reading {
+    font-size: 18px;
+    color: #555;
+}
+
+.jr-common-tag {
+    background: #4CAF50;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.jr-sense {
+    margin-bottom: 10px;
+}
+
+.jr-pos {
+    font-style: italic;
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+
+.jr-definition {
+    margin-left: 10px;
+}
+
+.jr-variant {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #666;
+}
